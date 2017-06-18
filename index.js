@@ -78,6 +78,9 @@ function dragEvent(list){
 		set=''
 		$('.temp').remove()
 	})
+	.on('dragenter',function(e){
+		e.preventDefault()
+	})
 	.on('dragover',function(e){
 		e.preventDefault()		
 		if(set!=$(this).attr('id')){
