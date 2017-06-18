@@ -90,7 +90,8 @@ function dragEvent(list){
 				e.preventDefault()
 			})
 			$('.temp').on('drop',function(e){
-				
+				$('.temp').remove()
+				set=''
 				let id=e.originalEvent.dataTransfer.getData('text')
 				if($(this).attr('set')=='before'){
 					$('#'+id).insertBefore(dropWh)
