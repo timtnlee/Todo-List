@@ -1,0 +1,84 @@
+body{
+	margin: 0;
+}
+.margin{
+	text-align: center;
+	padding:20vh 0px 10vh 0vh; 
+}
+.hint{
+	color: lightpink;
+}
+.inputArea{
+	position: relative;
+	display: inline-block;
+	width: 300px;
+	height: 30px;
+	margin: 0px;
+}
+.input{
+	padding-left: 5px;
+	position: absolute;
+	top:0 ;
+	left: 0;
+	width: 100%;
+	height: 30px;
+	border-style: inset;
+	border-color:  lightgray; 
+	border-radius: 3px;
+}
+.add{
+	position: absolute;
+	top:0 ;
+	padding: 0px;
+	right: 5px;
+	display: inline-block;
+	font-size: 20px;
+}
+.listArea{
+	padding: 0;	
+	text-align: left;
+	margin: 0;
+	display: inline-block;
+	background-color: lightgoldenrodyellow;
+	width: 300px;	
+}
+.listArea p{
+	/* opacity: 0; */
+	position: relative;
+	width: 100%;
+	height: 60px;
+	margin: 0;
+	border-bottom: 1px solid yellow;
+}
+.listArea p input{
+	margin-right: 3px;
+}
+.listArea p .line{
+	opacity: 0;
+	position: absolute;
+	border-bottom: 1px solid orange;
+	width: 260px;
+	top: 30px;
+	left: 15px;
+}
+.listArea p .text{
+	position: absolute;
+	width: 280px;
+	top: 20px;
+	left: 10px;
+}
+.listArea p .edit{
+	position: absolute;
+	width: 20px;
+	top: 20px;
+	right:2px;
+}
+.listArea p .edit a{
+	cursor: pointer;
+}
+p[class="temp"]{
+	margin: 0px;
+	display: inline-block;
+	background-color:white;
+	height: 35px;
+}
