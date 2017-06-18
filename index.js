@@ -74,6 +74,7 @@ function dragEvent(list){
 		e.originalEvent.dataTransfer.setData('text',e.target.id);
 	})
 	.on('dragend',function(e){
+		alert('end')
 		set=''
 		$('.temp').remove()
 	})
