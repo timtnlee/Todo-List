@@ -3,6 +3,7 @@ var count=0,
 $(function() {
 	
     $('.add').on('click', function(e) {
+        "use strict"
         e.preventDefault()
         let input = $('.input').val()
         if ($.trim(input) != ''){
@@ -28,6 +29,7 @@ $(function() {
 })
 
 function newList(input) {
+    "use strict"
     $('.input').val('')
     count++
     let newlist = $('.listArea').prepend('<p id="list'+count+'" draggable="true">' +
@@ -69,14 +71,22 @@ function doneList(newlist) {
     })
 }
 function dragEvent(list){
-	list.on('dragstart touchstart',function(e){	
+    "use strict"
+    let id=list.attr('id')
+    document.getElementById(id).addEventListener('touchend',function(){
+        alert('t end')
+        set=''
+        $('.temp').remove()
+    },false)
+	list.on('dragstart',function(e){	
 		e.originalEvent.dataTransfer.setData('text',e.target.id);
 	})
-	.on('dragend touchend',function(){
+	.on('dragend',function(){
 		set=''
 		$('.temp').remove()
 	})
-	.on('dragover touchmove',function(e){
+	.on('dragover',function(e){
+        "use strict"
 		e.preventDefault()		
 		if(set!=$(this).attr('id')){
 			let dropWh=$(this)
@@ -85,11 +95,11 @@ function dragEvent(list){
 			$('<p class="temp" set="after"></p>').insertAfter(list)
 			$('<p class="temp" set="before"></p>').insertBefore(list)
 			
-			$('.temp').on('dragover touchmove',function(e){
+			$('.temp').on('dragover',function(e){
 				e.preventDefault()
 			})
 			.on('drop',function(e){
-
+                "use strict"
 				let id=e.originalEvent.dataTransfer.getData('text')
 				if($(this).attr('set')=='before'){
 					$('#'+id).insertBefore(dropWh)
@@ -101,6 +111,7 @@ function dragEvent(list){
 	})
 }
 function _check(list) {
+    "use strict"
 	_hint('Completed!')
     list.css({
             backgroundColor: 'lightgray',
@@ -136,6 +147,7 @@ function _check(list) {
 }
 
 function _uncheck(list) {
+    "use strict"
   	_hint('Oops!')
     list.css({
             backgroundColor: 'lightgoldenrodyellow',
