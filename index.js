@@ -73,7 +73,7 @@ function doneList(newlist) {
 function dragEvent(list){
     "use strict"
     let id=list.attr('id')
-    document.getElementById(id).addEventListener('touchend',function(){
+    document.getElementById(id).addEventListener('touchcancel',function(){
         alert('t end')
         set=''
         $('.temp').remove()
