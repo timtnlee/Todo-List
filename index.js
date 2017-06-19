@@ -37,7 +37,7 @@ function newList(input) {
     "use strict"
     $('.input').val('')
     count++
-    let newlist = $('.listArea').prepend('<p id="list' + count + '" >' +
+    $('.listArea').prepend('<p id="list' + count + '" >' +
             '<span class="line"></span>' +
             '<span class="text">' +
             '<input type="checkbox" name="">' +
@@ -47,7 +47,7 @@ function newList(input) {
             '<a class="glyphicon glyphicon-trash"></a>' +
             '</span>' +
             '</p>')
-        .find('p').first()
+    let newlist=$('#list'+count)
     newlist.animate({ opacity: '1' })
     deleteList(newlist)
     doneList(newlist)
@@ -56,7 +56,7 @@ function newList(input) {
 
 function deleteList(newlist) {
 
-    newlist.find('a').on('click', function(e) {
+    newlist.on('click','a', function(e) {
         _hint('You just delete a list')
         e.preventDefault()
         newlist.animate({ opacity: '0' }, 400)
@@ -68,7 +68,7 @@ function deleteList(newlist) {
 
 function doneList(newlist) {
 
-    newlist.find('input').on('click', function() {
+    newlist.on('click','input', function() {
         if ($(this).is(':checked'))
             _check(newlist)
         else //actually no way
