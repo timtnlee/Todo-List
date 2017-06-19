@@ -1,5 +1,6 @@
 var count=0,
- 	set=''
+ 	set='',
+    dragging=false
 $(function() {
 	
     $('.add').on('click', function(e) {
@@ -73,13 +74,18 @@ function doneList(newlist) {
 function dragEvent(list){
     "use strict"
     let id=list.attr('id')
-    document.getElementById(id).addEventListener('touchcancel',function(){
-        alert('t end')
-        set=''
-        $('.temp').remove()
+    document.getElementById(id).addEventListener('touchend',function(){
+        if(dragging){
+            alert('end')
+            set=''
+            $('.temp').remove()
+            dragging=false
+        }
+        
     },false)
 	list.on('dragstart',function(e){	
 		e.originalEvent.dataTransfer.setData('text',e.target.id);
+        dragging=true
 	})
 	.on('dragend',function(){
 		set=''
