@@ -75,15 +75,16 @@ function dragEvent(list){
     "use strict"
     let id=list.attr('id')
     document.getElementById(id).addEventListener('touchend',function(){
-        if(dragging){
-            alert('end')
-            set=''
-            $('.temp').remove()
-            dragging=false
-        }
-        
-    },false)
+        if(dragging)
+            return;
 
+        alert('end')
+        set=''
+        $('.temp').remove()        
+    },false)
+    document.getElementById(id).addEventListener('touchstart',function(){
+        dragging=false;
+    },false)
     document.getElementById(id).addEventListener('touchmove',function(){
         dragging=true;
     },false)
