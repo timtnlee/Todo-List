@@ -56,7 +56,7 @@ function newList(input) {
 
 function deleteList(newlist) {
 
-    newlist.find('a').on('click touchend', function(e) {
+    newlist.find('a').on('vclick touchend', function(e) {
         _hint('You just delete a list')
         e.preventDefault()
         newlist.animate({ opacity: '0' }, 400)
@@ -68,7 +68,7 @@ function deleteList(newlist) {
 
 function doneList(newlist) {
 
-    newlist.find('input').on('click touchend', function() {
+    newlist.find('input').on('vclick touchend', function() {
         if ($(this).is(':checked'))
             _check(newlist)
         else //actually no way
