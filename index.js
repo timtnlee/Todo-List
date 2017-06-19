@@ -30,7 +30,7 @@ $(function() {
 function newList(input) {
     $('.input').val('')
     count++
-    let newlist = $('.listArea').prepend('<p draggable="true" id="list'+count+'">' +
+    let newlist = $('.listArea').prepend('<p id="list'+count+'" draggable="true">' +
             '<span class="line"></span>' +
             '<span class="text">' +
             '<input type="checkbox" name="">' +
@@ -69,19 +69,14 @@ function doneList(newlist) {
     })
 }
 function dragEvent(list){
-	list.on('dragstart',function(e){
-	
+	list.on('dragstart touchstart',function(e){	
 		e.originalEvent.dataTransfer.setData('text',e.target.id);
 	})
-	.on('dragend',function(e){
-		console.log('end')
+	.on('dragend touchend',function(){
 		set=''
 		$('.temp').remove()
 	})
-	.on('dragenter',function(e){
-		e.preventDefault()
-	})
-	.on('dragover',function(e){
+	.on('dragover touchmove',function(e){
 		e.preventDefault()		
 		if(set!=$(this).attr('id')){
 			let dropWh=$(this)
@@ -90,12 +85,11 @@ function dragEvent(list){
 			$('<p class="temp" set="after"></p>').insertAfter(list)
 			$('<p class="temp" set="before"></p>').insertBefore(list)
 			
-			$('.temp').on('dragover',function(e){
+			$('.temp').on('dragover touchmove',function(e){
 				e.preventDefault()
 			})
-			$('.temp').on('drop',function(e){
-				$('.temp').remove()
-				set=''
+			.on('drop',function(e){
+
 				let id=e.originalEvent.dataTransfer.getData('text')
 				if($(this).attr('set')=='before'){
 					$('#'+id).insertBefore(dropWh)
