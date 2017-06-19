@@ -97,6 +97,7 @@ function dragEvent(list){
 		$('.temp').remove()
 	})
 	.on('dragover',function(e){
+        dragging=true;
         "use strict"
 		e.preventDefault()		
 		if(set!=$(this).attr('id')){
