@@ -39,16 +39,17 @@ body{
 	text-align: left;
 	margin: 0;
 	display: inline-block;
-	background-color: lightgoldenrodyellow;
+	background-color: white;
 	width: 300px;	
 }
 .listArea p{
 	/* opacity: 0; */
 	position: relative;
-	width: 100%;
+	width: 300px;
 	height: 60px;
 	margin: 0;
 	border-bottom: 1px solid yellow;
+	background-color: lightgoldenrodyellow;
 }
 .listArea p input{
 	margin-right: 3px;
