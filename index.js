@@ -39,8 +39,8 @@ function newList(input) {
     count++
     $('.listArea').prepend('<p id="list' + count + '" >' +
             '<span class="line"></span>' +
-            '<span class="text">' +
             '<input type="checkbox" name="">' +
+            '<span class="text">' +            
             input +
             '</span>' +
             '<span class="edit">' +
@@ -56,7 +56,7 @@ function newList(input) {
 
 function deleteList(newlist) {
 
-    newlist.find('a').on('vclick touchend', function(e) {
+    newlist.find('a').on('vclick', function(e) {
         _hint('You just delete a list')
         e.preventDefault()
         newlist.animate({ opacity: '0' }, 400)
@@ -68,7 +68,7 @@ function deleteList(newlist) {
 
 function doneList(newlist) {
 
-    newlist.find('input').on('vclick touchend', function() {
+    newlist.find('input').on('vclick', function() {
         if ($(this).is(':checked'))
             _check(newlist)
         else //actually no way
