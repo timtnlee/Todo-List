@@ -52,6 +52,11 @@ body{
 	background-color: lightgoldenrodyellow;
 }
 .listArea p input{
+	position: absolute;
+	left: 4px;
+	top: 20px;
+	width: 18px;
+	height: 18px;
 	margin-right: 3px;
 }
 .listArea p .line{
@@ -63,15 +68,16 @@ body{
 	left: 15px;
 }
 .listArea p .text{
+	overflow: hidden;
 	position: absolute;
-	width: 280px;
-	top: 20px;
-	left: 10px;
+	width: 250px;
+	top: 22px;
+	left: 24px;
 }
 .listArea p .edit{
 	position: absolute;
 	width: 20px;
-	top: 20px;
+	top: 22px;
 	right:2px;
 }
 .listArea p .edit a{
