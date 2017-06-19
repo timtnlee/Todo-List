@@ -83,9 +83,12 @@ function dragEvent(list){
         }
         
     },false)
+
+    document.getElementById(id).addEventListener('touchmove',function(){
+        dragging=true;
+    },false)
 	list.on('dragstart',function(e){	
 		e.originalEvent.dataTransfer.setData('text',e.target.id);
-        dragging=true
 	})
 	.on('dragend',function(){
 		set=''
