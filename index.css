@@ -51,13 +51,21 @@ body{
 	border-bottom: 1px solid yellow;
 	background-color: lightgoldenrodyellow;
 }
-.listArea p input{
+.listArea p .check{
+	cursor: pointer;
 	position: absolute;
+	display: inline-block;
 	left: 4px;
-	top: 20px;
+	top: 22px;
 	width: 18px;
 	height: 18px;
+	border-radius: 10px;
+	border: 1px solid gray;
+	background-color: white;
 	margin-right: 3px;
+}
+.listArea p .checked{
+	background-color: grey;
 }
 .listArea p .line{
 	opacity: 0;
@@ -72,7 +80,7 @@ body{
 	position: absolute;
 	width: 250px;
 	top: 22px;
-	left: 24px;
+	left: 26px;
 }
 .listArea p .edit{
 	position: absolute;

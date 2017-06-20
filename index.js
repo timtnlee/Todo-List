@@ -39,7 +39,7 @@ function newList(input) {
     count++
     $('.listArea').prepend('<p id="list' + count + '" >' +
             '<span class="line"></span>' +
-            '<input type="checkbox" name="">' +
+            '<span class="check"></span>' +
             '<span class="text">' +            
             input +
             '</span>' +
@@ -68,8 +68,9 @@ function deleteList(newlist) {
 
 function doneList(newlist) {
 
-    newlist.find('input').on('vclick', function() {
-        if ($(this).is(':checked'))
+    newlist.find('.check').on('vclick', function(e) {
+        $(this).toggleClass('checked')
+        if ($(this).hasClass('checked'))
             _check(newlist)
         else //actually no way
             _uncheck(newlist)
@@ -85,31 +86,31 @@ function _check(list) {
         })
         .find('.line').animate({ opacity: '1' })
 
-    list.animate({ opacity: '0' }, 400)
+    //list.animate({ opacity: '0' }, 400)
 
-    let content = list.html(),
-        id = list.attr('id')
+    // let content = list.html(),
+    //     id = list.attr('id')
 
-    setTimeout(function() {
-        list.remove()
-    }, 400)
+    // setTimeout(function() {
+    //     list.insertAfter('.listArea')
+    // }, 400)
 
-    let newlist = $('.listArea').append('<p id="' + id + '">' + content + '</p>')
-        .find('p').last()
+    // let newlist = $('.listArea').append('<p id="' + id + '">' + content + '</p>')
+    //     .find('p').last()
 
-    newlist.css({
-        opacity: '0',
-        backgroundColor: 'lightgray',
-        borderColor: 'gray'
-    }).animate({ opacity: '1' }).find('.line').css({ opacity: '1' })
-    newlist.find('input').attr('checked', true).on('click', function() {
-        if ($(this).is(':checked')) //actually no way
-            _check(newlist)
-        else
-            _uncheck(newlist)
-    })
-    deleteList(newlist)
-    //dragEvent(newlist)
+    // newlist.css({
+    //     opacity: '0',
+    //     backgroundColor: 'lightgray',
+    //     borderColor: 'gray'
+    // }).animate({ opacity: '1' }).find('.line').css({ opacity: '1' })
+    // newlist.find('.check').addClass('checked').on('vclick', function() {
+    //     if ($(this).is(':checked')) //actually no way
+    //         _check(newlist)
+    //     else
+    //         _uncheck(newlist)
+    // })
+    // deleteList(newlist)
+    // //dragEvent(newlist)
 }
 
 function _uncheck(list) {
@@ -123,23 +124,23 @@ function _uncheck(list) {
 
     list.animate({ opacity: '0' }, 400)
 
-    let content = list.html(),
-        id = list.attr('id')
+    // let content = list.html(),
+    //     id = list.attr('id')
 
-    setTimeout(function() {
-        list.remove()
-    }, 400)
-    let newlist = $('.listArea').prepend('<p id="' + id + '">' + content + '</p>')
-        .find('p').first()
+    // setTimeout(function() {
+    //     list.remove()
+    // }, 400)
+    // let newlist = $('.listArea').prepend('<p id="' + id + '">' + content + '</p>')
+    //     .find('p').first()
 
-    newlist.animate({ opacity: '1' }).find('.line').animate({ opacity: '0' })
-    newlist.find('input').attr('checked', false).on('click', function() {
-        if ($(this).is(':checked')) //actually no way
-            _check(newlist)
-        else
-            _uncheck(newlist)
-    })
-    deleteList(newlist)
+    // newlist.animate({ opacity: '1' }).find('.line').animate({ opacity: '0' })
+    // newlist.find('input').removeClass('checked').on('click', function() {
+    //     if ($(this).is(':checked')) //actually no way
+    //         _check(newlist)
+    //     else
+    //         _uncheck(newlist)
+    // })
+    // deleteList(newlist)
     //dragEvent(newlist)
 }
 
