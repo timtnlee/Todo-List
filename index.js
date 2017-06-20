@@ -84,33 +84,7 @@ function _check(list) {
             backgroundColor: 'lightgray',
             borderColor: 'gray'
         })
-        .find('.line').animate({ opacity: '1' })
-
-    //list.animate({ opacity: '0' }, 400)
-
-    // let content = list.html(),
-    //     id = list.attr('id')
-
-    // setTimeout(function() {
-    //     list.insertAfter('.listArea')
-    // }, 400)
-
-    // let newlist = $('.listArea').append('<p id="' + id + '">' + content + '</p>')
-    //     .find('p').last()
-
-    // newlist.css({
-    //     opacity: '0',
-    //     backgroundColor: 'lightgray',
-    //     borderColor: 'gray'
-    // }).animate({ opacity: '1' }).find('.line').css({ opacity: '1' })
-    // newlist.find('.check').addClass('checked').on('vclick', function() {
-    //     if ($(this).is(':checked')) //actually no way
-    //         _check(newlist)
-    //     else
-    //         _uncheck(newlist)
-    // })
-    // deleteList(newlist)
-    // //dragEvent(newlist)
+        .find('.line').stop().animate({ opacity: '1' })
 }
 
 function _uncheck(list) {
@@ -120,28 +94,7 @@ function _uncheck(list) {
             backgroundColor: 'lightgoldenrodyellow',
             borderColor: 'yellow'
         })
-        .find('.line').animate({ opacity: '1' })
-
-    list.animate({ opacity: '0' }, 400)
-
-    // let content = list.html(),
-    //     id = list.attr('id')
-
-    // setTimeout(function() {
-    //     list.remove()
-    // }, 400)
-    // let newlist = $('.listArea').prepend('<p id="' + id + '">' + content + '</p>')
-    //     .find('p').first()
-
-    // newlist.animate({ opacity: '1' }).find('.line').animate({ opacity: '0' })
-    // newlist.find('input').removeClass('checked').on('click', function() {
-    //     if ($(this).is(':checked')) //actually no way
-    //         _check(newlist)
-    //     else
-    //         _uncheck(newlist)
-    // })
-    // deleteList(newlist)
-    //dragEvent(newlist)
+        .find('.line').stop().animate({ opacity: '0' })
 }
 
 function _hint(text) {
